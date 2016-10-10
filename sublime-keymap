@@ -1,0 +1,10 @@
+[
+    {"keys": ["f12"],"command": "toggle_side_bar"},
+
+    { "keys": ["shift+backspace"], "command": "right_delete" },
+
+    { "keys": ["ctrl+w"], "command": "delete_word", "args": { "forward": true } },
+
+    { "keys": ["ctrl+b"], "command": "delete_word", "args": { "forward": false} },
+
+]
