@@ -23,9 +23,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
-Plugin 'taglist.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Vundlevim/python-mode.vim'
+Plugin 'klen/python-mode'
 Plugin 'Lokaltog/vim-powerline'
 
 " All of your Plugins must be added before the following line
@@ -105,3 +104,9 @@ endif
 
 " key-bindings
 map <C-n> :NERDTreeToggle<CR>
+" switch panes
+map <C-j> <C-w><C-j>
+map <C-k> <C-w><C-k>
+map <C-l> <C-w><C-l>
+map <C-h> <C-w><C-h>
+
