@@ -110,3 +110,5 @@ map <C-k> <C-w><C-k>
 map <C-l> <C-w><C-l>
 map <C-h> <C-w><C-h>
 
+" file extension ignored in NERDTree
+let NERDTreeIgnore = ['\.pyc$']
