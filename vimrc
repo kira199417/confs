@@ -24,14 +24,15 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 Plugin 'scrooloose/nerdtree'
-Plugin 'klen/python-mode'
 Plugin 'Lokaltog/vim-powerline'
+Plugin 'fatih/vim-go'
+Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -43,7 +44,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
-colorschem freya
+colorschem darcula
 
 
 " Uncomment the next line to make Vim more Vi-compatible
@@ -74,17 +75,24 @@ if has("autocmd")
   filetype plugin indent on
 endif
 
+if (&term == 'xterm-256color')
+    set t_Co=256
+endif
+
+" map leader
+let mapleader=","
+
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-set showcmd		" Show (partial) command in status line.
+set showcmd		    " Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 "set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set incsearch		" Incremental search
 set autowrite		" Automatically save before commands like :next and :make
-set hidden		" Hide buffers when they are abandoned
-set mouse=a		" Enable mouse usage (all modes)
-set number   " display line number
+set hidden		    " Hide buffers when they are abandoned
+set mouse=a		    " Enable mouse usage (all modes)
+set number          " display line number
 set relativenumber
 set shiftwidth=4
 set tabstop=4
@@ -93,9 +101,9 @@ set smartindent
 set foldmethod=indent
 set ruler
 set nowrap
-
 set laststatus=2
-set foldmethod=indent
+set backspace=indent,eol,start
+set noswapfile
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -112,3 +120,15 @@ map <C-h> <C-w><C-h>
 
 " file extension ignored in NERDTree
 let NERDTreeIgnore = ['\.pyc$']
+
+" map ev to open .vimrc in a vsplit window
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+
+" map sv to command:source $MYVIMRC, that is to say, reload .vimrc to make changes take
+" effect
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" move line up
+nnoremap - :m -2<CR>
+" move line down
+nnoremap + :m +1<CR>
